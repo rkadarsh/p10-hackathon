@@ -1,6 +1,6 @@
-# webapp-seed-es6
+# Project Management Office - p10 hackathon
 
-This is my opinionated starter for an Express & Angular2 web app. In order to leverage the latest version of JS(ES6) at the server side, It uses Babel as a transpiler.
+Hackathon App - Sreeraag, Nashid, Adarsh, Gayathri, Vishnu, Rishikesh and Poojashree
 
 ## Setup
 
