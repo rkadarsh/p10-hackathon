@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MdButtonModule, MdCheckboxModule, 
          MdCardModule, MdToolbarModule, 
          MdIconModule, MdTooltipModule,
-        MdSelectModule } from '@angular/material';
+         MdSelectModule,
+         MdInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { MdButtonModule, MdCheckboxModule,
     MdIconModule,
     MdTooltipModule,
     MdCheckboxModule,
-    MdSelectModule
+    MdSelectModule,
+    MdInputModule
   ],
   declarations: []
 })

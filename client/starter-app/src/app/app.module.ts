@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './providers/material.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WeeklyTsComponent } from './pages/weekly-ts/weekly-ts.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeeklyTsComponent,    
-    NavbarComponent
+    NavbarComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
