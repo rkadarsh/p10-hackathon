@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdButtonModule, MdCheckboxModule, 
          MdCardModule, MdToolbarModule, 
-         MdIconModule, MdTooltipModule } from '@angular/material';
+         MdIconModule, MdTooltipModule,
+         MdInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { MdButtonModule, MdCheckboxModule,
     MdToolbarModule,
     MdIconModule,
     MdTooltipModule,
+    MdInputModule,
   	MdCheckboxModule
   ],
   declarations: []
