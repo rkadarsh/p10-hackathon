@@ -15,7 +15,7 @@ let controller = {
                 res.send(employeesProject);
             })
 
-    }
+    },
 };
 
 export default controller;
