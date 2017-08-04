@@ -1,0 +1,30 @@
+md-card {
+	margin: auto;
+	margin-top: 50px;
+	width: 400px;
+}
+
+md-toolbar {
+	background: #FFFFFF;
+	border-bottom: 1px solid #DEDEDE;
+	span {
+		margin: 0 auto;
+		font-size: 24px;
+		font-weight: 700;
+	}
+}
+
+form {
+	margin: 24px 0;
+}
+
+.mat-input-container {
+	width: 100%;
+}
+
+.mat-raised-button {
+	width: 100%;
+	margin-top: 24px;	
+	font-size: 18px;
+	text-transform: uppercase;
+}

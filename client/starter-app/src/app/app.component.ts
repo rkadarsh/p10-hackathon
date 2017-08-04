@@ -9,18 +9,15 @@ import { Http, Response } from '@angular/http';
 })
 export class AppComponent {
 
-  title = 'app works!!!!!!!!!!';
+  title = 'People10 | PMO';
   httpResponse:any;
 
   constructor(private http:Http){
 
   }
 
-  ngOnInit(){
-    this.http.get('http://localhost:8080/api/employees')
-    .subscribe((res:Response)=>{
-      this.httpResponse=res.json().text;
-    })
+  ngOnInit()
+  {
   }
 
 }
