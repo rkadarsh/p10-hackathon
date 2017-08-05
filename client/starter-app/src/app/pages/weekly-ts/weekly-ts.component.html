@@ -1,4 +1,5 @@
-
+<div class="weekly-ts container">
+ <div class="row dropdown-row">
   <md-select placeholder="Select a Month" class="month">
     <md-option [value]="1">January</md-option>
     <md-option [value]="2">February</md-option>
@@ -14,36 +15,48 @@
     <md-option [value]="12">December</md-option>  
   </md-select>
 
-  <md-select placeholder="Select a Week" class="month">
+  <md-select placeholder="Select a Week" class="week">
     <md-option [value]="13">Week 1</md-option>
     <md-option [value]="14">Week 2</md-option>
     <md-option [value]="15">Week 3</md-option>
     <md-option [value]="16">week 4</md-option>
   </md-select>
+</div>
 
+<div class="days-row row">
+  <div class="col-lg-2 col-lg-offset-1">
+    <md-card class="day-card">
+      <md-card-header class="day">Monday</md-card-header>
+        <md-card-content class="approved num">1</md-card-content>
+    </md-card>
+  </div> 
 
+  <div class="col-lg-2">
+    <md-card class="day-card">
+      <md-card-header class="day">Tuesday</md-card-header>
+        <md-card-content class="approved num">2</md-card-content>
+    </md-card> 
+  </div>
 
+  <div class="col-lg-2">
+    <md-card class="day-card">
+      <md-card-header class="day">Wednesday</md-card-header>
+        <md-card-content class="unfilled num">3</md-card-content>
+    </md-card> 
+  </div>
 
-<md-card class="monday">
-  <md-card-header>Monday</md-card-header>
-  <md-card-content>123132</md-card-content>
-</md-card> 
+  <div class="col-lg-2">  
+    <md-card class="day-card">
+      <md-card-header class="day">Thursday</md-card-header>
+        <md-card-content class="today num">4</md-card-content>
+    </md-card>
+  </div> 
 
-<md-card class="tuesday">
-  <md-card-header>Tuesday</md-card-header>
-</md-card> 
-
-<md-card class="wednesday">
-  <md-card-header>Wednesday</md-card-header>
-
-</md-card> 
-
-<md-card class="thursday">
-  <md-card-header>Thursday</md-card-header>
-</md-card> 
-
-<md-card class="friday">
-  <md-card-header>Friday</md-card-header>
-</md-card> 
-
-
+  <div class="col-lg-2">
+    <md-card class="day-card">
+      <md-card-header class="day">Friday</md-card-header>
+      <md-card-content class="future num">5</md-card-content>
+    </md-card> 
+  </div>
+</div>
+</div>

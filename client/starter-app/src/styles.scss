@@ -6,7 +6,9 @@ body {
 	overflow: hidden;
 	font: 500 20px/32px Roboto,"Helvetica Neue", sans-serif;
 	.container {
-		background: #EEEEEE;
+		margin: 0;
+		width: 100vw;
+		background: #FFFFFF;
 		padding: 30px;
 		height: 100vh;
 	}	
