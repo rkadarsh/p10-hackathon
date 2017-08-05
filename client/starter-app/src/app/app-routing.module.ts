@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProjectComponent } from './pages/project/project.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+
+import { AddActivityComponent } from './pages/add-activity/add-activity.component';
+
 import { WeeklyTsComponent } from './pages/weekly-ts/weekly-ts.component';
+
 
 const routes: Routes = [
   {
@@ -10,13 +14,19 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'weekly-ts',
+    path     : 'weekly-ts',
     component: WeeklyTsComponent
   },
   {
      path     : 'project',
      component: ProjectComponent
-  }
+   },
+     {
+     path     : 'addActivity',
+     component: AddActivityComponent
+   }
+
+
 ];
 
 @NgModule({
