@@ -14,7 +14,7 @@ export class WeeklyTsService {
     postDate(val){
       return this.http.post(this.apiURL + 'employees/timesheetRetrieval', val)
         .toPromise()
-        .then(res => console.log(res));
+        .then(res => res.json());
     }
 
 }

@@ -10,7 +10,7 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'weekly-ts',
+    path: 'weekly-ts/:id',
     component: WeeklyTsComponent
   },
   {
