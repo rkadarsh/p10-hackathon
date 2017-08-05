@@ -28,6 +28,7 @@ export class LoginPageComponent implements OnInit {
     this.loginService.login(obj)
       .then(data => {
         if(_.isEmpty(data) == false){
+          this.loginService.setEmployee(data);
           this.router.navigate(['project']);
         }
       });

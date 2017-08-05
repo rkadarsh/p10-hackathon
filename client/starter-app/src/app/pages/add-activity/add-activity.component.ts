@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, Response, Headers } from '@angular/http';
-import {ProjectService} from '../../pages/project/project.component.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector   : 'app-add-activity',
@@ -17,16 +16,16 @@ export class AddActivityComponent implements OnInit {
   showEditable   : boolean = false;
   editActivityId : any;
   activityValues : any[];
+  projectId: any;
+  date: any;
+  employeeId: any;
+  status: any;
   actualHourTotal: number;
   addRowDisable  : boolean = false;
   postResponse   : any;
-  projectId      : any;
+
+  constructor(private _http: Http, private router: Router, private route: ActivatedRoute) { this.activities = arr; }
   
-
-
-
-  
-
   remove(activity) {
     let index = this.activities.indexOf(activity);
     this.activities.splice(index, 1);
@@ -44,14 +43,16 @@ export class AddActivityComponent implements OnInit {
     };
   }
 
-
-  constructor(private _http: Http,private projectService: ProjectService,private _flashMessagesService: FlashMessagesService) { this.activities = arr; }
-
   ngOnInit() {
+    this.route.params.subscribe(data => {
+      this.projectId = data.projectId;
+      this.date = data.date;
+      this.status = data.status;
+      this.employeeId = data.employeeId;
+    });
     this._http.get('http://10.0.1.30:8080/api/employees/activities').subscribe((res: Response) => {
       this.activityValues = res.json()
   });
-    this.projectId = this.projectService.getProjectId();
   }
 
 
@@ -60,7 +61,7 @@ export class AddActivityComponent implements OnInit {
       this._http.post('http://10.0.1.30:8080/api/employees/timesheet',activities).subscribe((res: Response) => {
       this.postResponse = res.json()
       if(this.postResponse.Message == 'Success'){
-   
+        this.router.navigate(['weekly-ts', this.projectId]);
       }
       });
   
@@ -71,7 +72,7 @@ export class AddActivityComponent implements OnInit {
  
     this.actualHourTotal = 0;
     this.activities.push({
-      project_id: 1, planned_hours: Number(), activity_id: null, actual_hours: Number(), employee_id: 1, status: 0
+      date_for_timesheet:this.date, project_id: this.projectId, planned_hours: Number(), activity_id: null, actual_hours: Number(), employee_id: this.employeeId, status: this.status
     })
   
     for (var i = 0; i < this.activities.length; i++) {

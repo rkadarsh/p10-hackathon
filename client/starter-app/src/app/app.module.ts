@@ -14,9 +14,6 @@ import { WeeklyTsComponent } from './pages/weekly-ts/weekly-ts.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { AddActivityComponent } from './pages/add-activity/add-activity.component';
-import {ProjectService} from './pages/project/project.component.service';
-import { FlashMessagesModule } from 'angular2-flash-messages';
-import { FlashMessagesService } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -34,11 +31,10 @@ import { FlashMessagesService } from 'angular2-flash-messages';
     HttpModule,
 
     MaterialModule,
-    AppRoutingModule,
-    FlashMessagesModule
+    AppRoutingModule
   ],
 
-  providers: [WeeklyTsService,ProjectService,FlashMessagesService,LoginService],
+  providers: [WeeklyTsService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
