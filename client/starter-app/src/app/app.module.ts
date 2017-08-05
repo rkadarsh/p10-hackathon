@@ -7,7 +7,8 @@ import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './providers/material.module';
-import { WeeklyTsService } from './providers/weekly-ts.service'
+import { WeeklyTsService } from './providers/weekly-ts.service';
+import { LoginService } from './providers/login.service'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WeeklyTsComponent } from './pages/weekly-ts/weekly-ts.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -36,7 +37,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
     AppRoutingModule,
     FlashMessagesModule
   ],
-  providers: [WeeklyTsService,ProjectService,FlashMessagesService],
+
+  providers: [WeeklyTsService,ProjectService,FlashMessagesService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

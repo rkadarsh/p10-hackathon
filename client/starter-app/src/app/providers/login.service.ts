@@ -5,14 +5,14 @@ import 'rxjs/add/operator/toPromise';
 import * as moment from 'moment';
 
 @Injectable()
-export class WeeklyTsService {
+export class LoginService {
 
   constructor(private http : Http) { }
 
   private apiURL = 'http://10.0.1.30:8080/api/'
 
-    postDate(val){
-      return this.http.post(this.apiURL + 'employees/timesheetRetrieval', val)
+    login(val){
+      return this.http.post(this.apiURL + 'employees/login', val)
         .toPromise()
         .then(res => res.json());
     }
