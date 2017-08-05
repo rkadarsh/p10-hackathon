@@ -20,7 +20,6 @@ let controller = {
     getTimeSheetRange(req, res, next) {//get timesheet history based on the date range
         let data=req.body;
         let timeSheet;
-        console.log("caaled",data);
         EmployeeService.getRangeTime(data)
         .then(getTimeSheet => {
             timeSheet = getTimeSheet;
@@ -45,6 +44,18 @@ let controller = {
             res.status(200);
             res.send(result);
         })
+    },
+    getTimeSheet(req,res, next){
+        console.log("getting timesheet");
+        EmployeeService.getTimeSheet(req.params.id)
+            .then(timesheet => { res.send({timesheet})})
+            .catch(next);
+    },
+    updateTimeSheet(req, res, next) {
+        console.log('controll');
+        EmployeeService.updateTimeSheet(req.body)
+            .then(result => {res.send({status: 1, Message: "Success"})})
+            .catch(next);
     }
 };
 
