@@ -16,7 +16,8 @@
     "media-typer": "^0.3.0",
     "mime-types": "^2.0.10",
     "pg": "^6.4.1",
-    "pg-format": "^1.0.4"
+    "pg-format": "^1.0.4",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "jasmine-node": "^2.0.0",

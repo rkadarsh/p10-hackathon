@@ -1,4 +1,5 @@
 import EmployeeService from './employee.service.js';
+import _ from 'underscore';
 
 let controller = {
     getEmployees(req, res, next) {
@@ -16,6 +17,35 @@ let controller = {
             })
 
     },
+    getTimeSheetRange(req, res, next) {//get timesheet history based on the date range
+        let data=req.body;
+        let timeSheet;
+        console.log("caaled",data);
+        EmployeeService.getRangeTime(data)
+        .then(getTimeSheet => {
+            timeSheet = getTimeSheet;
+            return EmployeeService.getProjectActivities(data)
+            .then((activitydata)=>{
+                let differActivities = _.filter(activitydata, function(obj){ return !_.findWhere(getTimeSheet, {activity_id: obj.id}); });
+                let dataToSend = _.union(getTimeSheet, differActivities);
+                res.status(200);
+                res.send(dataToSend);
+            })
+        }).catch(err=>{
+            res.status(400);
+            res.send("no data in this limit");
+        })
+
+        
+        
+    },
+    getActivities(req,res,next){
+        EmployeeService.Activities().then(result=>{
+            console.log(result,"result");
+            res.status(200);
+            res.send(result);
+        })
+    }
 };
 
 export default controller;
