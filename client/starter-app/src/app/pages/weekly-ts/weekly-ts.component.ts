@@ -24,7 +24,7 @@ export class WeeklyTsComponent implements OnInit {
   }
 
   updateDays(val, monthNum) {
-    this.weeklyTsService.postDate({range: val, month: monthNum});
+    this.getTimesheets({range: val, month: monthNum});
     this.days = [];
     for (let i = val[0]; i <= val[1]; i++) {
       this.days.push({
@@ -32,6 +32,16 @@ export class WeeklyTsComponent implements OnInit {
         day: moment().month(monthNum - 1).date(i).format('dddd')
       });
     }
+  }
+
+  getTimesheets(val) {
+      let postObject = {
+        'startDate': '',
+        'toDate': ''
+      };
+      postObject.startDate = moment().month(val.month - 1).date(val.range[0]).format('YYYY-MM-DD');
+      postObject.toDate = moment().month(val.month - 1).date(val.range[1]).format('YYYY-MM-DD');    
+      this.weeklyTsService.postDate(postObject);
   }
 
 
