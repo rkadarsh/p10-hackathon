@@ -1,34 +1,6 @@
 import connection from '../../db/db-pg-connection.js';
 
 let EmployeeService = {
-    getEmployees() {
-        return new Promise((resolve, reject) => {
-            connection.query('SELECT * FROM public.employee', (err, res) => {
-                if (err)
-                    reject(err);
-                else
-                    resolve(res.rows);
-            });
-        });
-    },
-    // getWeeklyList() {
-    //     return new Promise((resolve, reject) => {
-    //         const text = 
-    //         const value = 
-    //         connection.query(text,value,(err, res) => {
-
-
-    //             if (err){  
-    //                 reject(err);
-    //             }
-    //             else{
-
-    //                 resolve(res.rows[0]);
-    //             }
-    //         });
-    //     });
-    // },
-
     getTimeSheet(data) {
         return new Promise((resolve, reject) => {
             const addTime = new Date();
@@ -37,12 +9,8 @@ let EmployeeService = {
                 value: [data.employee_id, data.project_id, data.date_for_timesheet]
 
             }
-
-
-
             connection.query(query, (err, res) => {
                 if (err) {
-                    // console.log('errrrorrr', err);
                     reject(err);
                 }
                 else {

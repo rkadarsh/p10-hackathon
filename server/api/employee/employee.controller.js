@@ -18,21 +18,6 @@ let controller = {
             .then(result => {res.send({status: 1, Message: "Success"})})
             .catch(next);
     }
-    //  loginUser: function(req,res,next){
-    //     let userData;
-    //     UserService.loginUser(req.body)
-    //         .then( user =>{
-
-    //             userData = user;
-    //             return UserService.getUserWalletData(userData.user_id);
-                
-    //         })
-    //         .then(walletData=>{
-    //             userData.balance=walletData;
-    //             userData.status=true;
-    //             res.status(200);
-    //             res.send(userData);
-    // })
 };
 
 export default controller;
