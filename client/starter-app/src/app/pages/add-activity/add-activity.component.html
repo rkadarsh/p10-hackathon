@@ -1,4 +1,4 @@
-<button [disabled]="addRowDisable" (click)="addRow()" md-raised-button>Add activities</button>
+<button [disabled]="addRowDisable" (click)="addRow()" md-raised-button>Add Activities</button>
 <br/>
 <br/>
 
@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-md-3">
                     <md-input-container>
-                        <input mdInput pattern="^([0-8])$" placeholder="Plannedhours" [(ngModel)]="activity.planned_hours" #plannedHours="ngModel">
+                        <input mdInput pattern="^([0-8])$" placeholder="Planned Hours" [(ngModel)]="activity.planned_hours" #plannedHours="ngModel">
                     </md-input-container>
                     <div [hidden]="plannedHours.valid || plannedHours.pristine">
                         <div [hidden]="!plannedHours.hasError('required')" class="alert alert-danger">fill the time</div>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-3">
                     <md-input-container>
-                        <input mdInput pattern="^([0-8])$" placeholder="Actualhours" [(ngModel)]="activity.actual_hours" #actualHours="ngModel">
+                        <input mdInput pattern="^([0-8])$" placeholder="Actual Hours" [(ngModel)]="activity.actual_hours" #actualHours="ngModel">
                     </md-input-container>
                     <div [hidden]="actualHours.valid || actualHours.pristine">
                         <div [hidden]="!actualHours.hasError('required')" class="alert alert-danger">fill the time</div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button (click)="remove(activity)" md-raised-button>Deleteactivity</button>
+                    <button (click)="remove(activity)" md-raised-button>Delete Activity</button>
                 </div>
             </div>
 
@@ -51,24 +51,24 @@
                 </div>
                 <div class="col-md-3">
                     <md-input-container>
-                        <input mdInput pattern="^([0-8])$" placeholder="Plannedhours" [(ngModel)]="activity.planned_hours" #plannedHours="ngModel">
+                        <input mdInput pattern="^([0-8])$" placeholder="Planned Hours" [(ngModel)]="activity.planned_hours" #plannedHours="ngModel">
                     </md-input-container>
                     <div [hidden]="plannedHours.valid || plannedHours.pristine">
-                        <div [hidden]="!plannedHours.hasError('required')" class="alert alert-danger">fill the time</div>
-                        <div [hidden]="!plannedHours.hasError('pattern')" class="alert alert-danger">enter valid time format</div>
+                        <div [hidden]="!plannedHours.hasError('required')" class="alert alert-danger">Please enter the time</div>
+                        <div [hidden]="!plannedHours.hasError('pattern')" class="alert alert-danger">Enter valid time format</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <md-input-container>
-                        <input mdInput pattern="^([0-8])$" placeholder="Actualhours" [(ngModel)]="activity.actual_hours" #actualHours="ngModel">
+                        <input mdInput pattern="^([0-8])$" placeholder="Actual Hours" [(ngModel)]="activity.actual_hours" #actualHours="ngModel">
                     </md-input-container>
                     <div [hidden]="actualHours.valid || actualHours.pristine">
-                        <div [hidden]="!actualHours.hasError('required')" class="alert alert-danger">fill the time</div>
-                        <div [hidden]="!actualHours.hasError('pattern')" class="alert alert-danger">enter valid time format</div>
+                        <div [hidden]="!actualHours.hasError('required')" class="alert alert-danger">Please fill the time</div>
+                        <div [hidden]="!actualHours.hasError('pattern')" class="alert alert-danger">Enter valid time format</div>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button (click)="remove(activity)" md-raised-button>Deleteactivity</button>
+                    <button (click)="remove(activity)" md-raised-button>Delete Activity</button>
                 </div>
             </div>
         </md-card-content>

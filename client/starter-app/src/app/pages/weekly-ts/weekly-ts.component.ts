@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { WeeklyTsService } from '../../providers/weekly-ts.service';
-import { Router } from '@angular/router';
+import { LoginService } from '../../providers/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'weekly-ts',
@@ -14,17 +15,32 @@ export class WeeklyTsComponent implements OnInit {
   timesheetData: any;
   weeksArray = [];
   days = [];
+  employee:any;
+  projectId = '';
+
   constructor(
     private weeklyTsService: WeeklyTsService,
-    private router: Router
+    private loginService: LoginService,
+    private router: Router,
+    private route : ActivatedRoute
   ) { }
 
-  dayclick(){
-    this.router.navigate(['/']);
+  dayclick(day){
+    let obj = {
+      date : day.date,
+      status: day.status,
+      employeeId: this.employee.id,
+      projectId: this.projectId
+    }
+    this.router.navigate(['/addActivity', obj]);
   }
 
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.projectId = params.id;
+    })
+    this.employee = this.loginService.getEmployee();
   }
 
   updateDays(val, monthNum) {

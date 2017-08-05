@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, Response, Headers } from '@angular/http';
+import { ActivatedRoute} from '@angular/router';
+
 @Component({
   selector   : 'app-add-activity',
   templateUrl: './add-activity.component.html',
@@ -35,9 +37,10 @@ export class AddActivityComponent implements OnInit {
       console.log(this.actualHourTotal, "activities.lenght")
     };
   }
-  constructor(private _http: Http) { this.activities = arr; }
+  constructor(private _http: Http, private route: ActivatedRoute) { this.activities = arr; }
 
   ngOnInit() {
+    this.route.params.subscribe(data => console.log(data));
     this._http.get('http://10.0.1.30:8080/api/employees/activities').subscribe((res: Response) => {
       this.activityValues = res.json()
   });
