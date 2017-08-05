@@ -10,21 +10,27 @@ import { MaterialModule } from './providers/material.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WeeklyTsComponent } from './pages/weekly-ts/weekly-ts.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { ProjectComponent } from './pages/project/project.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     WeeklyTsComponent,    
     NavbarComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+
     MaterialModule,
     AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

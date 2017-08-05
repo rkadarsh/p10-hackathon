@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MdButtonModule, MdCheckboxModule, 
          MdCardModule, MdToolbarModule, 
          MdIconModule, MdTooltipModule,
          MdSelectModule,
          MdInputModule } from '@angular/material';
+
+
+
 
 @NgModule({
   imports: [
@@ -12,7 +16,9 @@ import { MdButtonModule, MdCheckboxModule,
   	MdCheckboxModule,
     MdCardModule,
     MdSelectModule,
-    CommonModule
+    CommonModule,
+    MdToolbarModule,
+    MdIconModule
   ],
   exports: [
   	MdButtonModule,
@@ -22,7 +28,9 @@ import { MdButtonModule, MdCheckboxModule,
     MdTooltipModule,
     MdCheckboxModule,
     MdSelectModule,
-    MdInputModule
+    MdInputModule,
+  	MdCheckboxModule,
+    MdIconModule
   ],
   declarations: []
 })
