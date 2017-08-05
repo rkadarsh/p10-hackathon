@@ -1,0 +1,78 @@
+<button [disabled]="addRowDisable" (click)="addRow()" md-raised-button>Add activities</button>
+<br/>
+<br/>
+
+<div *ngFor="let activity of activities">
+    <md-card *ngIf="activity.id === editActivityId">
+        <md-card-content>
+            <div class="row">
+                <div class="col-md-4">
+                    <md-select placeholder="Activities" [(ngModel)]="activity.activity_id" #activity_id="ngModel">
+                        <md-option *ngFor="let activityValue of activityValues" [value]="activityValue.id">
+                            {{ activityValue.activity_name }}
+                        </md-option>
+                    </md-select>
+                </div>
+                <div class="col-md-3">
+                    <md-input-container>
+                        <input mdInput pattern="^([0-8])$" placeholder="Plannedhours" [(ngModel)]="activity.planned_hours" #plannedHours="ngModel">
+                    </md-input-container>
+                    <div [hidden]="plannedHours.valid || plannedHours.pristine">
+                        <div [hidden]="!plannedHours.hasError('required')" class="alert alert-danger">fill the time</div>
+                        <div [hidden]="!plannedHours.hasError('pattern')" class="alert alert-danger">enter valid time format</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <md-input-container>
+                        <input mdInput pattern="^([0-8])$" placeholder="Actualhours" [(ngModel)]="activity.actual_hours" #actualHours="ngModel">
+                    </md-input-container>
+                    <div [hidden]="actualHours.valid || actualHours.pristine">
+                        <div [hidden]="!actualHours.hasError('required')" class="alert alert-danger">fill the time</div>
+                        <div [hidden]="!actualHours.hasError('pattern')" class="alert alert-danger">enter valid time format</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button (click)="remove(activity)" md-raised-button>Deleteactivity</button>
+                </div>
+            </div>
+
+        </md-card-content>
+    </md-card>
+
+    <md-card *ngIf="activity.id !== editActivityId" (click)="toggle(activity.id)">
+        <md-card-content>
+            <div class="row">
+                <div class="col-md-4">
+                    <md-select placeholder="Activities" [(ngModel)]="activity.activity_id" #activity_id="ngModel">
+                        <md-option *ngFor="let activityValue of activityValues" [value]="activityValue.id">
+                            {{ activityValue.activity_name }}
+                        </md-option>
+                    </md-select>
+                </div>
+                <div class="col-md-3">
+                    <md-input-container>
+                        <input mdInput pattern="^([0-8])$" placeholder="Plannedhours" [(ngModel)]="activity.planned_hours" #plannedHours="ngModel">
+                    </md-input-container>
+                    <div [hidden]="plannedHours.valid || plannedHours.pristine">
+                        <div [hidden]="!plannedHours.hasError('required')" class="alert alert-danger">fill the time</div>
+                        <div [hidden]="!plannedHours.hasError('pattern')" class="alert alert-danger">enter valid time format</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <md-input-container>
+                        <input mdInput pattern="^([0-8])$" placeholder="Actualhours" [(ngModel)]="activity.actual_hours" #actualHours="ngModel">
+                    </md-input-container>
+                    <div [hidden]="actualHours.valid || actualHours.pristine">
+                        <div [hidden]="!actualHours.hasError('required')" class="alert alert-danger">fill the time</div>
+                        <div [hidden]="!actualHours.hasError('pattern')" class="alert alert-danger">enter valid time format</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button (click)="remove(activity)" md-raised-button>Deleteactivity</button>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+    <br/>
+</div>
+<button [disabled]="addRowDisable" class="pull-right" (click)="postActivities(activities)" md-raised-button>Submit</button>

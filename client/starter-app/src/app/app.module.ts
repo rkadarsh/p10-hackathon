@@ -10,7 +10,7 @@ import { MaterialModule } from './providers/material.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProjectComponent } from './pages/project/project.component';
-
+import { AddActivityComponent } from './pages/add-activity/add-activity.component';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { ProjectComponent } from './pages/project/project.component';
     AppComponent,
     NavbarComponent,
     LoginPageComponent,
-    ProjectComponent
+    ProjectComponent,
+    AddActivityComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +28,8 @@ import { ProjectComponent } from './pages/project/project.component';
     HttpModule,
 
     MaterialModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
