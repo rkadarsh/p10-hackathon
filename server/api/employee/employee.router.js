@@ -9,5 +9,6 @@ router.post('/timesheetRetrieval',controller.getTimeSheetRange);//get range of d
 router.get('/activities',controller.getActivities);
 router.get('/getTimeSheet', controller.getTimeSheet);
 router.post('/timesheet', controller.updateTimeSheet);
-
+router.post('/login',controller.getEmployees);
+// 
 export default router;

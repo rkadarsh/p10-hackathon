@@ -1,6 +1,28 @@
 import connection from '../../db/db-pg-connection.js';
 
 let EmployeeService = {
+    getUserDetail(data){
+return new Promise((resolve, reject) => {
+    console.log(data,"yota");
+
+            const query = {
+                text: "SELECT id,first_name FROM employee  WHERE email=$1 AND password=$2",
+                values: [data.email, data.password]
+
+            }
+            connection.query(query, (err, res) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    console.log("wewe",res.rows[0])
+                    resolve(res.rows[0]);
+                }
+
+            });
+
+        });
+    },
     getTimeSheet(data) {
         return new Promise((resolve, reject) => {
 

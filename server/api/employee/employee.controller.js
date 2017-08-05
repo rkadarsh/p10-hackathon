@@ -3,11 +3,18 @@ import _ from 'underscore';
 
 let controller = {
     getEmployees(req, res, next) {
-        EmployeeService.getEmployees()
-            .then(employees => {
-                res.send({ employees })
+        EmployeeService.getUserDetail(req.body)
+            .then(employee => {
+                let data=employee.employee;
+                res.status(200);
+                res.send(employee)
             })
-            .catch(next);
+            .catch(err=>{
+                if(err){
+                    res.status(400)
+                    res.send("email or password does not match");
+                }
+            });
     },
     empGetPojects(req, res, next) {
         EmployeeService.getEmployeeProjects(req.params.id)
