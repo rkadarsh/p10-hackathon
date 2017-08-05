@@ -13,13 +13,11 @@ const routes: Routes = [
     path: 'weekly-ts',
     component: WeeklyTsComponent
   },
+  {
      path     : 'project',
      component: ProjectComponent
-   }
+  }
 ];
-
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
