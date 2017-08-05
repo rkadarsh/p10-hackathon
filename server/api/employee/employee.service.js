@@ -33,13 +33,13 @@ let EmployeeService = {
 
                 if(data && !data.id){
                     queryString = {
-                        text: 'INSERT INTO public.timesheet_management (employee_id, project_id, activity_id, status, actual_hours, planned_hours, date_for_timesheet, created_at, updated_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)',
-                        values: [data.employee_id, data.project_id, data.activity_id, data.status, data.actual_hours,data.planned_hours, addTime, addTime, addTime]
+                        text: 'INSERT INTO public.timesheet_management (employee_id, project_id, activity_id, status, active_hours, planned_hours, date_for_timesheet, created_at, updated_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)',
+                        values: [data.employee_id, data.project_id, data.activity_id, data.status, data.active_hours,data.planned_hours, addTime, addTime, addTime]
                     };
                 }
                 else{
                     queryString = {
-                        text: 'UPDATE public.timesheet_management SET activity_id = $1, status = $2, actual_hours = $3, planned_hours=$4, updated_at = $5 WHERE id=$6',
+                        text: 'UPDATE public.timesheet_management SET activity_id = $1, status = $2, active_hours = $3, planned_hours=$4, updated_at = $5 WHERE id=$6',
                         values: [data.activity_id, data.status, data.active_hours, data.planned_hours, addTime, data.id]
                     };
                 }
