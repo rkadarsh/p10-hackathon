@@ -7,6 +7,7 @@ import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './providers/material.module';
+import { WeeklyTsService } from './providers/weekly-ts.service'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WeeklyTsComponent } from './pages/weekly-ts/weekly-ts.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -32,7 +33,7 @@ import { ProjectComponent } from './pages/project/project.component';
     AppRoutingModule
 
   ],
-  providers: [],
+  providers: [WeeklyTsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
