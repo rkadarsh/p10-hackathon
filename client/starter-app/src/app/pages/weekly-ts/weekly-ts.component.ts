@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { WeeklyTsService } from '../../providers/weekly-ts.service'
+import { WeeklyTsService } from '../../providers/weekly-ts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'weekly-ts',
@@ -10,40 +11,51 @@ import { WeeklyTsService } from '../../providers/weekly-ts.service'
 export class WeeklyTsComponent implements OnInit {
 
   month: any;
+  timesheetData: any;
   weeksArray = [];
   days = [];
   constructor(
-    private weeklyTsService: WeeklyTsService
+    private weeklyTsService: WeeklyTsService,
+    private router: Router
   ) { }
 
-  
+  dayclick(){
+    this.router.navigate(['/']);
+  }
 
 
   ngOnInit() {
-  	this.weeks('2017-02-01');
   }
 
   updateDays(val, monthNum) {
-    this.getTimesheets({range: val, month: monthNum});
-    this.days = [];
-    for (let i = val[0]; i <= val[1]; i++) {
-      this.days.push({
-        date: i,
-        day: moment().month(monthNum - 1).date(i).format('dddd')
+    let postObject = {
+      'startDate': '',
+      'toDate': ''
+    };    
+    postObject.startDate = moment().month(monthNum - 1).date(val[0]).format('YYYY-MM-DD');
+    postObject.toDate = moment().month(monthNum - 1).date(val[1]).format('YYYY-MM-DD');      
+    this.weeklyTsService.postDate(postObject)
+      .then(res => { 
+        this.timesheetData = res; 
+        this.days = [];
+        for (let i = val[0]; i <= val[1]; i++) {
+          this.days.push({
+            date: i,
+            day: moment().month(monthNum - 1).date(i).format('dddd')
+          });
+        }    
+        for (let i = 0; i < 5; i++){
+          for (let j = 0; j < this.timesheetData.length; j++) {
+            if(this.days[i].day == moment(this.timesheetData[j].date_for_timesheet).format('dddd')) {
+              this.days[i].status = this.timesheetData[j].status;              
+            }
+            else {
+              this.days[i].status = '0';
+            }
+          }
+        }    
       });
-    }
   }
-
-  getTimesheets(val) {
-      let postObject = {
-        'startDate': '',
-        'toDate': ''
-      };
-      postObject.startDate = moment().month(val.month - 1).date(val.range[0]).format('YYYY-MM-DD');
-      postObject.toDate = moment().month(val.month - 1).date(val.range[1]).format('YYYY-MM-DD');    
-      this.weeklyTsService.postDate(postObject);
-  }
-
 
   weeks(month) {
     this.month = moment().month(month - 1).format("MMMM");

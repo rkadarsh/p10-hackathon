@@ -4,11 +4,11 @@
 	</md-toolbar>
 	<form class="example-form">
 	  <md-input-container>
-	    <input mdInput placeholder="Email" value="abc@example.com">
+	    <input name="email" mdInput type="email" [(ngModel)]="emailFormControl" placeholder="Email" value="abc@example.com">
 	  </md-input-container>
 	  <md-input-container>
-	    <input mdInput placeholder="Password" type="password">	  
+	    <input name="password" mdInput [(ngModel)]="password" placeholder="Password" type="password">	  
 	  </md-input-container>
-	  <button md-raised-button [routerLink]="['/project']" color="primary">Login</button>
+	  <button md-raised-button (click)="login()" color="primary">Login</button>
 	</form>
 </md-card>
