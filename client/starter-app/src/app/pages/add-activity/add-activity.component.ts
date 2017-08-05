@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, Response, Headers } from '@angular/http';
-import { ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector   : 'app-add-activity',
   templateUrl: './add-activity.component.html',
   styleUrls  : ['./add-activity.component.scss']
 })
+
+
+
 export class AddActivityComponent implements OnInit {
   activities     : any[] = [];
   showEditable   : boolean = false;
@@ -19,29 +22,26 @@ export class AddActivityComponent implements OnInit {
   status: any;
   actualHourTotal: number;
   addRowDisable  : boolean = false;
-  postActivities(activities) {
-    console.log(activities, "post")
+  postResponse   : any;
 
-  }
-
+  constructor(private _http: Http, private router: Router, private route: ActivatedRoute) { this.activities = arr; }
+  
   remove(activity) {
     let index = this.activities.indexOf(activity);
     this.activities.splice(index, 1);
-    console.log(this.activities, "removed")
     this.actualHourTotal = 0;
     for (var i = 0; i < this.activities.length; i++) {
       this.actualHourTotal += Number(this.activities[i].actual_hours);
       if (this.actualHourTotal >= 8) {
-        console.log(this.actualHourTotal, "if")
+    
         this.addRowDisable = true;
       }
       else {
         this.addRowDisable = false;
       }
-      console.log(this.actualHourTotal, "activities.lenght")
+   
     };
   }
-  constructor(private _http: Http, private route: ActivatedRoute) { this.activities = arr; }
 
   ngOnInit() {
     this.route.params.subscribe(data => {
@@ -53,9 +53,20 @@ export class AddActivityComponent implements OnInit {
     this._http.get('http://10.0.1.30:8080/api/employees/activities').subscribe((res: Response) => {
       this.activityValues = res.json()
   });
-
-
   }
+
+
+    postActivities(activities) {
+    
+      this._http.post('http://10.0.1.30:8080/api/employees/timesheet',activities).subscribe((res: Response) => {
+      this.postResponse = res.json()
+      if(this.postResponse.Message == 'Success'){
+        this.router.navigate(['weekly-ts', this.projectId]);
+      }
+      });
+  
+  }
+
 
   addRow() {
  

@@ -15,7 +15,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { AddActivityComponent } from './pages/add-activity/add-activity.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,10 +31,10 @@ import { AddActivityComponent } from './pages/add-activity/add-activity.componen
     HttpModule,
 
     MaterialModule,
-    AppRoutingModule,
-   
+    AppRoutingModule
   ],
-  providers: [WeeklyTsService, LoginService],
+
+  providers: [WeeklyTsService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
