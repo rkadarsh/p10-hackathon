@@ -13,6 +13,10 @@ export class AddActivityComponent implements OnInit {
   showEditable   : boolean = false;
   editActivityId : any;
   activityValues : any[];
+  projectId: any;
+  date: any;
+  employeeId: any;
+  status: any;
   actualHourTotal: number;
   addRowDisable  : boolean = false;
   postActivities(activities) {
@@ -40,7 +44,12 @@ export class AddActivityComponent implements OnInit {
   constructor(private _http: Http, private route: ActivatedRoute) { this.activities = arr; }
 
   ngOnInit() {
-    this.route.params.subscribe(data => console.log(data));
+    this.route.params.subscribe(data => {
+      this.projectId = data.projectId;
+      this.date = data.date;
+      this.status = data.status;
+      this.employeeId = data.employeeId;
+    });
     this._http.get('http://10.0.1.30:8080/api/employees/activities').subscribe((res: Response) => {
       this.activityValues = res.json()
   });
@@ -52,7 +61,7 @@ export class AddActivityComponent implements OnInit {
  
     this.actualHourTotal = 0;
     this.activities.push({
-      project_id: null, planned_hours: Number(), activity_id: null, actual_hours: Number(), employee_id: null
+      date_for_timesheet:this.date, project_id: this.projectId, planned_hours: Number(), activity_id: null, actual_hours: Number(), employee_id: this.employeeId, status: this.status
     })
   
     for (var i = 0; i < this.activities.length; i++) {

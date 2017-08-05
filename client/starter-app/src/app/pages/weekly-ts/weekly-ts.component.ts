@@ -14,6 +14,7 @@ export class WeeklyTsComponent implements OnInit {
   month: any;
   timesheetData: any;
   weeksArray = [];
+  monthVal:any;
   days = [];
   employee:any;
   projectId = '';
@@ -27,7 +28,7 @@ export class WeeklyTsComponent implements OnInit {
 
   dayclick(day){
     let obj = {
-      date : day.date,
+      date : '2017-'+this.monthVal+'-'+day.date,
       status: day.status,
       employeeId: this.employee.id,
       projectId: this.projectId
@@ -44,6 +45,7 @@ export class WeeklyTsComponent implements OnInit {
   }
 
   updateDays(val, monthNum) {
+    this.monthVal = moment(monthNum).format('MM');
     let postObject = {
       'startDate': '',
       'toDate': ''
