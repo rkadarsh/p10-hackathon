@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+import { Router } from '@angular/router';
+import { LoginService } from '../../providers/login.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-login-page',
@@ -10,11 +11,26 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
 })
 export class LoginPageComponent implements OnInit {
 	
-  emailFormControl = new FormControl('', [Validators.required,Validators.pattern(EMAIL_REGEX)]);
+  emailFormControl = ''
+  password = '';
 
-  constructor() { }
+  constructor(private loginService:LoginService,
+              private router: Router) { }
 
   ngOnInit() {
+  }
+
+  login() {
+    let obj = {
+      email: this.emailFormControl,
+      password: this.password
+    }
+    this.loginService.login(obj)
+      .then(data => {
+        if(_.isEmpty(data) == false){
+          this.router.navigate(['project']);
+        }
+      });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { WeeklyTsService } from '../../providers/weekly-ts.service'
+import { WeeklyTsService } from '../../providers/weekly-ts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'weekly-ts',
@@ -14,10 +15,13 @@ export class WeeklyTsComponent implements OnInit {
   weeksArray = [];
   days = [];
   constructor(
-    private weeklyTsService: WeeklyTsService
+    private weeklyTsService: WeeklyTsService,
+    private router: Router
   ) { }
 
-  
+  dayclick(){
+    this.router.navigate(['/']);
+  }
 
 
   ngOnInit() {
