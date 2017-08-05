@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import {  Http,Response,Headers} from '@angular/http';
-import {ProjectService} from './project.component.service';
 @Component({
   selector   : 'app-project',
   templateUrl: './project.component.html',

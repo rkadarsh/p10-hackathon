@@ -21,7 +21,7 @@
   </div>
 
   <div class="days-row row">
-    <div class="col-lg-2" *ngFor="let day of days; let index = index" [class.col-lg-offset-1]="index==0" (click)="dayclick()">
+    <div class="col-lg-2" *ngFor="let day of days; let index = index" [class.col-lg-offset-1]="index==0" (click)="dayclick(day)">
       <md-card class="day-card">
         <md-card-header class="day">{{day.day}}</md-card-header>
         <md-card-content [ngClass]="{'approved': day.status == '1', 'pending': day.status == '0'}" class="num">{{day.date}}</md-card-content>

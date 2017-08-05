@@ -7,6 +7,8 @@ import * as moment from 'moment';
 @Injectable()
 export class LoginService {
 
+  private employee:any;
+
   constructor(private http : Http) { }
 
   private apiURL = 'http://10.0.1.30:8080/api/'
@@ -15,6 +17,14 @@ export class LoginService {
       return this.http.post(this.apiURL + 'employees/login', val)
         .toPromise()
         .then(res => res.json());
+    }
+    
+    setEmployee(data) {
+      this.employee = data;
+    }
+
+    getEmployee() {
+      return this.employee;
     }
 
 }
