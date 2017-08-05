@@ -9,11 +9,13 @@ import { MdButtonModule, MdCheckboxModule,
 
 
 
+
 @NgModule({
   imports: [
   	MdButtonModule,
   	MdCheckboxModule,
     MdCardModule,
+    MdSelectModule,
     CommonModule,
     MdToolbarModule,
     MdIconModule,
@@ -25,10 +27,13 @@ import { MdButtonModule, MdCheckboxModule,
     MdToolbarModule,
     MdIconModule,
     MdTooltipModule,
+    MdCheckboxModule,
+    MdSelectModule,
     MdInputModule,
   	MdCheckboxModule,
     MdIconModule,
     MdSelectModule
+
 
   ],
   declarations: []

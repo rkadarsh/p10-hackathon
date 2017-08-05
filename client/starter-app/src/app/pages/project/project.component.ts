@@ -12,6 +12,7 @@ export class ProjectComponent implements OnInit {
     constructor(private _http:Http) { }
     projectclick(project){
     // console.log(project,"project")
+      
 
     }
   ngOnInit() {

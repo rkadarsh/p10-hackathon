@@ -7,7 +7,9 @@ import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './providers/material.module';
+import { WeeklyTsService } from './providers/weekly-ts.service'
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { WeeklyTsComponent } from './pages/weekly-ts/weekly-ts.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { AddActivityComponent } from './pages/add-activity/add-activity.component';
@@ -16,6 +18,7 @@ import { AddActivityComponent } from './pages/add-activity/add-activity.componen
 @NgModule({
   declarations: [
     AppComponent,
+    WeeklyTsComponent,    
     NavbarComponent,
     LoginPageComponent,
     ProjectComponent,
@@ -31,7 +34,7 @@ import { AddActivityComponent } from './pages/add-activity/add-activity.componen
     AppRoutingModule,
    
   ],
-  providers: [],
+  providers: [WeeklyTsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

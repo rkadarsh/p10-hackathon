@@ -1,0 +1,70 @@
+.day-card {
+  width: 200px;
+  height: 200px;
+}
+.mat-card-header {
+    display: block;
+}
+
+.container {
+    width: 100%;
+    padding: 0;
+}
+
+.red {
+    color: red;
+}
+
+.dropdown-row{
+    margin: 0;
+    display: block;
+    text-align: center;
+    padding: 5px 0 10px;
+    background-color: #BDBDBD;
+}
+
+.day{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px ;
+   color: rgba(0,0,0,0.53);
+    text-align: center;
+}
+
+.days-row {
+    margin: 20px;
+}
+
+.month{
+    width : 200px;
+}
+
+.week{
+    width: 200px;
+    margin-left: 100px;
+}
+
+.weekly-ts{
+    background: #EEE;
+}
+
+.num{
+    font-size: 94px;
+    text-align: center;
+}
+
+.approved{
+    color: #4CAF50;
+}
+
+.unfilled{
+    color: #F44336;
+}
+
+.today{
+    color: #FF9800;
+}
+
+.future{
+    color: #9E9E9E;
+}
